@@ -3,27 +3,27 @@
 
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+  <link rel="stylesheet" href="assets/common.css">
 </head>
+
 
 <body>
 
   <div ng-app="myApp" ng-controller="GreetingController">
-    <ul>
-      <li ng-repeat="x in names">
-        {{ x.name + ', ' + x.country }}
-      </li>
-    </ul>
+    <table>
+      <tr ng-repeat="x in names">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+      </tr>
+    </table>
   </div>
 
   <script>
   var myApp = angular.module('myApp',[]);
 
-  myApp.controller('GreetingController', function($scope) {
-    $scope.names = [
-    {name:'Jani',country:'Norway'},
-    {name:'Hege',country:'Sweden'},
-    {name:'Kai',country:'Denmark'}
-    ];
+  myApp.controller('GreetingController', function($scope, $http) {
+    $http.get("http://www.w3schools.com/website/Customers_JSON.php")
+    .success(function(response) {$scope.names = response;});
   });
   </script>
 
