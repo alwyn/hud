@@ -1,0 +1,25 @@
+angular.module('myApp', []).controller('namesController', [function() {
+				$scope.names = [{
+					name: 'Jani',
+					country: 'Norway'
+				}, {
+					name: 'Hege',
+					country: 'Sweden'
+				}, {
+					name: 'Kai',
+					country: 'Denmark'
+				}];
+			};
+
+			function namesController($scope) {
+				$scope.names = [{
+					name: 'Jani',
+					country: 'Norway'
+				}, {
+					name: 'Hege',
+					country: 'Sweden'
+				}, {
+					name: 'Kai',
+					country: 'Denmark'
+				}];
+			}
