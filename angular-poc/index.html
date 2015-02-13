@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
-<body>
+<body ng-app="myApp">
   <div class="container-fluid">
     <div class="row" style="background-color:lavender;">
-      <div class="col-lg-3" ng-app="myApp" ng-controller="dataController">
+      <div class="col-lg-3" ng-controller="dataController">
         <table class="table table-striped table-bordered">
           <tr ng-repeat="x in names">
             <td>{{ x.Name }}</td>
@@ -19,9 +19,9 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-3" ng-app="myApp" ng-controller="dataController2">
+      <div class="col-md-3" ng-controller="dataController2">
         <table class="table table-striped table-bordered">
-          <tr ng-repeat="x in names">
+          <tr ng-repeat="x in names2">
             <td>{{ x.Name }}</td>
             <td>{{ x.Country }}</td>
           </tr>

@@ -8,7 +8,7 @@ myApp.controller('dataController', function($scope, $http) {
 });
 
 myApp.controller('dataController2', function($scope) {
-  $scope.names = [{
+  $scope.names2 = [{
     Name: 'Jani',
     Country: 'Norway'
   }, {
