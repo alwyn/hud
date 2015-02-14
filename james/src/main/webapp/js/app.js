@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('dataController', function($scope, $http) {
-  $http.get("http://www.w3schools.com/website/Customers_JSON.php")
+  $http.get("http://localhost:8080/accounts")
     .success(function(response) {
       $scope.names = response;
     });

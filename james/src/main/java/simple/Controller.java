@@ -11,11 +11,6 @@ import simple.domain.AccountsContainer;
  */
 @RestController
 public class Controller {
-    @RequestMapping("/")
-    public String index() {
-        return "<h1>Isn't this simple?</h1>";
-    }
-
     @RequestMapping("/accounts")
     public Account[] listAccounts() {
         return AccountsContainer.getAccounts();
