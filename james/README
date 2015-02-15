@@ -1,8 +1,8 @@
-This is a repo for storing HUD code.
+ACI SSB HUD
 
-Feel free to make any branches you want.
+Please make a subfolder for your particular PoC.
 
-Feel free to make any sub folders that you want.
-
-If we ever need to split stuff into another repo we can. In fact, you can just make a repo in your own profile in Stash and then modify the settings so that HUD devs can read/write to that repo.
-
+List of PoCs
+--------------
+James: Uses angular.js, bootstrap.css, the Spring framework for RESTful services, and Sprint boot for quick launching.
+       Just type "gradlew run" and point your browser to localhost:8080.
