@@ -19,19 +19,19 @@ public class AccountsContainer {
 
     static {
         accounts = new ArrayList<>();
-        accounts.add(new Account("10020102", 2302.33));
-        accounts.add(new Account("10340122", 103.57));
-        accounts.add(new Account("00650105", 4456.80));
-        accounts.add(new Account("34349839", 3403.30));
-        accounts.add(new Account("67796065", 23.23));
-        accounts.add(new Account("12305904", 4546.34));
-        accounts.add(new Account("954594359", 963.43));
-        accounts.add(new Account("03894230", 583.34));
-        accounts.add(new Account("1239043", 34234.37));
-        accounts.add(new Account("123091230", 3423.35));
-        accounts.add(new Account("12203025", 3475.76));
-        accounts.add(new Account("77878", 293.23));
-        accounts.add(new Account("932032438902490234", 98903498.75));
-        accounts.add(new Account("03349023483982498234902384329420934824982343242323534", 332942398.43));
+        accounts.add(new Account("10020102", 2302.33, 20, "My savings"));
+        accounts.add(new Account("10340122", 103.57, 10, "Checking1"));
+        accounts.add(new Account("00650105", 4456.80, 40, "Stupid Loan"));
+        accounts.add(new Account("34349839", 3403.30, 50, "Mortgage"));
+        accounts.add(new Account("67796065", 23.23, 10, "Checking2"));
+        accounts.add(new Account("12305904", 4546.34, 20, "Rainy day fund"));
+        accounts.add(new Account("954594359", 963.43, 10, "Kid's checking"));
+        accounts.add(new Account("03894230", 583.34, 20, "college fund (and/or party fund)"));
+        accounts.add(new Account("1239043", 34234.37, 60, "no idea"));
+        accounts.add(new Account("123091230", 3423.35, 30, ""));
+        accounts.add(new Account("12203025", 3475.76, 40, ""));
+        accounts.add(new Account("77878", 293.23, 10, ""));
+        accounts.add(new Account("93203244", 903498.75, 10, ""));
+        accounts.add(new Account("0334902344", 2398.43, 20, ""));
     }
 }
