@@ -1,17 +1,21 @@
-var myApp = angular.module('myApp', []);
+var hud = angular.module('hud', []);
 
-myApp.controller('balancesController', function($scope, $http) {
+hud.controller('balancesController', function($scope, $http) {
   $http.get("http://localhost:8080/accounts")
     .success(function(response) {
-      $scope.names = response;
+      $scope.accounts = response;
     });
 });
 
-myApp.controller('quickTransferController', function($scope, $http) {
+hud.controller('quickTransferController', function($scope, $http) {
     $http.get("http://localhost:8080/accounts")
       .success(function(response) {
           $scope.accounts = response;
           $scope.account = $scope.accounts[0];
       });
+});
+
+hud.controller('billPayController', function($scope, $http) {
 
 });
+
