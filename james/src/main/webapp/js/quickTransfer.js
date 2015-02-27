@@ -7,11 +7,12 @@ angular.module('hud').controller('quickTransferController', function($scope, $ht
 
     $scope.submitTransfer = function($event) {
         var $btn = $event.currentTarget;
-        alert("test");
+        showAlert("Transfer has been completed! Reference number: 93838", "alert-success");
+        alert($scope.fromAccount.id)
     };
 
     $scope.confirmTransfer = function($event) {
-        var $btn = $event.currentTarget;
+        var $btn = $($event.currentTarget)
         if ($btn.hasClass('btn-success'))
         {
           return;
@@ -33,11 +34,11 @@ function showAlert(message, alert_type) {
         '</div>');
 
     $('#alert-div').on('closed.bs.alert', function () {
-        if ($('#qtransferButton').hasClass('btn-success'))
+        if ($('#qTransferButton').hasClass('btn-success'))
         {
-            $('#qtransferButton').removeClass('btn-success');
-            $('#qtransferButton').addClass('btn-primary');
-            $('#qtransferButton').button('reset');
+            $('#qTransferButton').removeClass('btn-success');
+            $('#qTransferButton').addClass('btn-primary');
+            $('#qTransferButton').button('reset');
             return;
         }
     })

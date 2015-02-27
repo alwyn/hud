@@ -1,6 +1,5 @@
 package simple;
 
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,10 +17,8 @@ public class Controller {
         return AccountsContainer.getAccounts();
     }
 
-    @RequestMapping(value = "/account/{index}", method = RequestMethod.GET)
-    public Account getAccountByIndex(@PathVariable("index") int index) {
-        return AccountsContainer.getAccount(index);
+    @RequestMapping(value = "/account/{id}", method = RequestMethod.GET)
+    public Account getAccountByIndex(@PathVariable("id") String id) {
+        return AccountsContainer.getAccount(id);
     }
-
-
 }

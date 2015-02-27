@@ -13,8 +13,16 @@ public class AccountsContainer {
         return accounts.toArray(accountsArr);
     }
 
-    public static Account getAccount(int index) {
-        return accounts.get(index);
+    public static Account getAccount(String id) {
+        for (Account a : accounts)
+        {
+            if (a.getId().equals(id))
+            {
+                return a;
+            }
+        }
+
+        return null;
     }
 
     static {

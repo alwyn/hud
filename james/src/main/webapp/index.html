@@ -5,61 +5,88 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- External JS -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
-
-    <!-- HUD JS -->
-    <script type="text/javascript" src="js/app.js"></script>
-
-    <!-- Widget JS -->
-    <script type="text/javascript" src="js/balances.js"></script>
-    <script type="text/javascript" src="js/quickTransfer.js"></script>
-    <script type="text/javascript" src="js/billPay.js"></script>
-
     <!-- CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/common.css"/>
 </head>
 
 <body ng-app="hud">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 span4" ng-controller="balancesController">
-                <table class="table table-striped table-bordered">
-                    <label class="h4">Account Balances</label><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 span4" ng-controller="balancesController">
+            <div id="balance-list">
+                <label class="h4">Account Balances</label><br>
+                <table class="table table-striped table-bordered table-hover">
                     <tr class="h5">
                         <td><b>Account</b></td>
                         <td><b>Balance</b></td>
                     </tr>
                     <tr ng-repeat="a in accounts">
-                        <td>{{ a.id + ' ' + a.nickname}}</td>
-                        <td>{{ a.balance }}</td>
+                        <td><a ng-href="#" ng-click='getAccountDetails(a)'>{{ a.id + ' ' + a.nickname }}</a></td>
+                        <td><a ng-href="#" ng-click='getAccountDetails(a)'>{{ a.balance }}</a></td>
                     </tr>
                 </table>
             </div>
-            <div class="col-sm-4 span4" ng-controller="quickTransferController">
-                <label class="h4">Quick Transfer</label><br>
-                <label>From Account:</label>
-                <select class="form-control" ng-model="fromAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
-                    <option></option>
-                </select>
-                <label>To Account:</label>
-                <select class="form-control" ng-model="toAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
-                    <option></option>
-                </select><br>
-                <button type="button" id="qTransferButton" ng-click="submitTransfer($event)" data-loading-text="Transfering..." data-complete-text="Complete!"
+            <div id="account-history" class="hidden">
+                <label class="h4">Account History for {{ selectedAccount.id + ' ' + selectedAccount.nickname
+                    }}</label><br>
+                <button type="button" id="accountHistoryBackButton" ng-click="showBalances($event)"
+                        data-loading-text="Loading..."
                         class="btn btn-primary btn-lg" autocomplete="off">
-                    Transfer
-                </button><br><br>
-                <div id="confirm-placeholder"></div>
-                <div id="alert-placeholder"></div>
-            </div>
-            <div class="col-sm-4 span4" ng-controller="billPayController">
-                <label class="h4">Pay Bills</label><br>
+                    Back
+                </button>
+                <br><br>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr class="h5">
+                        <td><b>Datetime</b></td>
+                        <td><b>Description</b></td>
+                        <td><b>Amount</b></td>
+                    </tr>
+                    <tr ng-repeat="item in selectedAccount.transactionHistory">
+                        <td>{{ item.datetime }}</a></td>
+                        <td>{{ item.description }}</a></td>
+                        <td>{{ item.amount }}</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
+        <div class="col-sm-4 span4" ng-controller="quickTransferController">
+            <label class="h4">Quick Transfer</label><br>
+            <label>From Account:</label>
+            <select class="form-control" ng-model="fromAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
+                <option></option>
+            </select>
+            <label>To Account:</label>
+            <select class="form-control" ng-model="toAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
+                <option></option>
+            </select><br>
+            <button type="button" id="qTransferButton" ng-click="confirmTransfer($event)"
+                    data-loading-text="Transferring..." data-complete-text="Complete!" class="btn btn-primary btn-lg"
+                    autocomplete="off">
+                Transfer
+            </button>
+            <br><br>
+
+            <div id="confirm-placeholder"></div>
+            <div id="alert-placeholder"></div>
+        </div>
+        <div class="col-sm-4 span4" ng-controller="billPayController">
+            <label class="h4">Pay Bills</label><br>
+        </div>
     </div>
+</div>
+
+<!-- External JS -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+<!-- HUD JS -->
+<script type="text/javascript" src="js/app.js"></script>
+
+<!-- Widget JS -->
+<script type="text/javascript" src="js/balances.js"></script>
+<script type="text/javascript" src="js/quickTransfer.js"></script>
+<script type="text/javascript" src="js/billPay.js"></script>
 </body>
 </html>
