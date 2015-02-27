@@ -1,6 +1,5 @@
 package simple;
 
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
