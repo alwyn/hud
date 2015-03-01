@@ -51,23 +51,42 @@
             </div>
         </div>
         <div class="col-sm-4 span4" ng-controller="quickTransferController">
-            <label class="h4">Quick Transfer</label><br>
-            <label>From Account:</label>
-            <select class="form-control" ng-model="fromAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
-                <option></option>
-            </select>
-            <label>To Account:</label>
-            <select class="form-control" ng-model="toAccount" ng-options="a.id + ' ' + a.nickname for a in accounts">
-                <option></option>
-            </select><br>
-            <button type="button" id="qTransferButton" ng-click="confirmTransfer($event)"
-                    data-loading-text="Transferring..." data-complete-text="Complete!" class="btn btn-primary btn-lg"
-                    autocomplete="off">
-                Transfer
-            </button>
+            <label class="h4">Quick Transfer</label>
+
+            <div id="transfer-form-div">
+                <form name="transferForm" class="css-form">
+                    <label>From Account:</label>
+                    <select class="form-control" ng-model="transfer.fromAccount"
+                            ng-options="a.id + ' ' + a.nickname for a in accounts">
+                    </select>
+                    <label>To Account:</label>
+                    <select class="form-control" ng-model="transfer.toAccount"
+                            ng-options="a.id + ' ' + a.nickname for a in accounts">
+                    </select>
+                    <label>Amount:</label>
+                    <input class="form-control" ng-model="transfer.amount"/><br>
+                    <button type="submit" id="qTransferButton" ng-click="confirmTransfer(transfer)"
+                            class="btn btn-primary btn-lg">
+                        Transfer
+                    </button>
+                </form>
+            </div>
+
+            <div id="confirm-dialog" class="hidden">
+                <p class="h5">
+                    Transfer
+                    <strong>${{ transfer.amount }}</strong> from
+                    <strong>{{ transfer.fromAccount.id }}</strong> to
+                    <strong>{{ transfer.toAccount.id }}</strong>?
+                </p>
+                <button type="button" id="qTransferSubmit" ng-click="submitTransfer($event, transfer, transferForm)"
+                        data-loading-text="Transferring..." data-complete-text="Complete!"
+                        class="btn btn-primary btn-lg">
+                    Yes!
+                </button>
+            </div>
             <br><br>
 
-            <div id="confirm-placeholder"></div>
             <div id="alert-placeholder"></div>
         </div>
         <div class="col-sm-4 span4" ng-controller="billPayController">
