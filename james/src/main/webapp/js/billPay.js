@@ -1,3 +1,4 @@
-angular.module('hud').controller('billPayController', function($scope, $http) {
+angular.module('billpay', [])
+    .controller('billPayController', function($scope, $http) {
 
 });

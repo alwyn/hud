@@ -1,1 +1,1 @@
-angular.module('hud', []);
+angular.module('dashboard', ['balances', 'billpay', 'quicktransfer']);

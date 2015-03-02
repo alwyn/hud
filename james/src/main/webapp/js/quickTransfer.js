@@ -1,9 +1,10 @@
-angular.module('hud').controller('quickTransferController', function($scope, $http) {
-    $http.get("http://localhost:8080/accounts")
-      .success(function(response) {
-          $scope.accounts = response;
-          $scope.account = $scope.accounts[0];
-      });
+angular.module('quicktransfer', [])
+    .controller('quickTransferController', function($scope, $http) {
+        $http.get("http://localhost:8080/accounts")
+          .success(function(response) {
+              $scope.accounts = response;
+              $scope.account = $scope.accounts[0];
+          });
 
     $scope.confirmTransfer = function(transfer) {
         $scope.transfer = transfer;
