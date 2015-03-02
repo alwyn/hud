@@ -71,7 +71,41 @@
                     </button>
                 </form>
             </div>
+
+            <div id="confirm-dialog" class="hidden">
+                <p class="h5">
+                    Transfer
+                    <strong>${{ transfer.amount }}</strong> from
+                    <strong>{{ transfer.fromAccount.id }}</strong> to
+                    <strong>{{ transfer.toAccount.id }}</strong>?
+                </p>
+                <button type="button" id="qTransferSubmit" ng-click="submitTransfer($event, transfer, transferForm)"
+                        data-loading-text="Transferring..." data-complete-text="Complete!"
+                        class="btn btn-primary btn-lg">
+                    Yes!
+                </button>
+            </div>
+            <br><br>
+
+            <div id="alert-placeholder"></div>
+        </div>
+        <div class="col-sm-4 span4" ng-controller="billPayController">
+            <label class="h4">Pay Bills</label><br>
         </div>
     </div>
+</div>
+
+<!-- External JS -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+
+<!-- HUD JS -->
+<script type="text/javascript" src="js/app.js"></script>
+
+<!-- Widget JS -->
+<script type="text/javascript" src="js/balances.js"></script>
+<script type="text/javascript" src="js/quickTransfer.js"></script>
+<script type="text/javascript" src="js/billPay.js"></script>
 </body>
 </html>
