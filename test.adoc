@@ -5,3 +5,5 @@ This is a test of github's asciidoc
 == Blah 
 
 Oh boy
+
+image:: someimage.jpg[]
